@@ -1,0 +1,7 @@
+package com.java;
+
+public class Thread extends Object {
+	public void run() {
+		System.out.println("In main thread");
+	}
+}

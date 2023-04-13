@@ -1,0 +1,24 @@
+package com.java;
+
+class Number{
+	synchronized void printNum() {
+		
+	}
+}
+
+class myThreadOne extends Thread {
+	
+	public void run() {
+		System.out.println("Even thread");
+	};
+}
+
+public class ThreadTwo{
+	public static void main(String[] args) {
+		
+		myThreadOne t1 = new myThreadOne(t);
+		Thread t2 = new Thread(t);
+		
+		
+	}
+}

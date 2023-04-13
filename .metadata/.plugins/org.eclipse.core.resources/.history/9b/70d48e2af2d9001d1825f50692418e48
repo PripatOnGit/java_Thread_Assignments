@@ -1,0 +1,26 @@
+package com.java;
+
+class MyThread extends Thread {
+	int num;
+	String name;
+	
+	public MyThread(String name,int start) {
+		this.name = name;
+	}
+	synchronized void print() {
+		System.out.println("Number "+i);
+		}
+	public void run() {
+		Number.print(10);
+	}
+}
+// Driver class
+public class ThreadEx2 {
+	public static void main(String[] args) {
+		Number num = new Number(10);
+		MyThread t1 = new MyThread("Even Thread");
+		MyThread t2 = new MyThread("odd Thread");
+		t1.start();
+		t2.start(); 
+	}
+}

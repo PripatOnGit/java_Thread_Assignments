@@ -1,0 +1,31 @@
+package com.java;
+
+class Number{
+	synchronized void print() {
+		
+	}
+}
+
+
+class MyThread extends Thread {
+	int num;
+	String name;
+	public MyThread(String name, int i) {
+		this.num = i;
+		this.name = name;
+	}
+}
+
+
+
+
+
+
+
+// Driver class
+public class ThreadEx2 {
+	public static void main(String[] args) {
+		Number num = new Number();
+		MyThread t1 = new MyThread("Even Thread",10);
+	}
+}

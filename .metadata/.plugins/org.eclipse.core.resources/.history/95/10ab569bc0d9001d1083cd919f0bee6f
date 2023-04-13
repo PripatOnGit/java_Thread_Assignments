@@ -1,0 +1,26 @@
+
+package com.java;
+
+class ThreadOne extends Thread{
+	int id;
+	ThreadOne(int id){
+		this.id = id;
+	}
+	
+	public void run() {
+		System.out.println("In Child thread"+ this.id);
+	}
+}
+
+public class ThreadEx1 {
+	
+	public static void main(String[] args) {
+		ThreadOne t1 = new ThreadOne(int id);
+		t1.start();
+		
+		ThreadOne t2 = new ThreadOne();
+		t2.start();
+		
+		System.out.println("Main thread exit");
+		}
+}

@@ -1,0 +1,28 @@
+package com.java;
+
+class Number{
+	synchronized void print() {
+		
+	}
+}
+
+
+class myThread extends Thread {
+	int num;
+	myThread(int a){
+		num = a;
+	}
+}
+
+
+
+
+
+
+
+// Driver class
+public class ThreadEx2 {
+	public static void main(String[] args) {
+		
+	}
+}

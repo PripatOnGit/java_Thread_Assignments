@@ -1,0 +1,12 @@
+package com.java;
+
+public class ThreadTwo extends Thread {
+	String tname;
+	ThreadTwo( string name){
+		tname = name;
+	}
+	
+	public static void main(String[] args) {
+		ThreadTwo t1 = new ThreadTwo("Even Thread");
+	}
+}

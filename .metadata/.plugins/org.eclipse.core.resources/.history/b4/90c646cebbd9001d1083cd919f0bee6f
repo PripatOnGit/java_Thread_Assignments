@@ -1,0 +1,23 @@
+
+package com.java;
+
+
+class ThreadOne extends Thread{ 
+	
+	public void run() {
+		System.out.println("In child Thread");
+	}
+	private void start() {
+		System.out.println("in main Thread");
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Thread t = new Thread();
+		t.start();
+		ThreadOne t1 = new ThreadOne();
+		t1.start();
+	}
+
+			
+}
