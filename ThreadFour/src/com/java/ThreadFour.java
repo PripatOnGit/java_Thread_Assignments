@@ -4,18 +4,41 @@ Use a proper synchronization mechanism if needed.
  */
 package com.java;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
 class ThreadOne extends Thread{
 	String name;
+	int num;
 	ThreadOne(String name){
 		this.name = name;
 	}
 	
-	public int readInteger() {
-		
+	public void readInteger() throws IOException {
+		File myObj = new File("IntegerFile.txt");
+		Scanner sc = new Scanner(myObj);
+		File newFile = new File("D:\\Priyanka\\WEB_DEV\\Java_Thread_Assignaments\\ThreadFour\\src\\com\\java\\integerFile2.txt");
+		newFile.createNewFile();
+		while(sc.nextInt()) {
+		FileWriter myWriter = new FileWriter("integerFile2.txt");
+		myWriter.write(num);
+		}
 	}
 	public void run() {
-		readInteger();
-		Thread.sleep(1000);
+		try {
+			readInteger();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
 class ThreadTwo extends Thread {
@@ -25,19 +48,26 @@ class ThreadTwo extends Thread {
 	}
 	
 	public int sumIntegers() {
+		return 0;
 		
 	}
 	
 	public void run() {
 		sumIntegers();
-		Thread.sleep(1000);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
 
 public class ThreadFour {
-	ThreadOne t1 = new ThreadOne("producer thread");
-	ThreadTwo t2 = new ThreadTwo("consumer thread");
-	t1.start();
-	t2.start();
-	
+	public static void main(String[] args) {
+		ThreadOne t1 = new ThreadOne("producer thread");
+		ThreadTwo t2 = new ThreadTwo("consumer thread");
+		t1.start();
+		t2.start();
+	}
 }
