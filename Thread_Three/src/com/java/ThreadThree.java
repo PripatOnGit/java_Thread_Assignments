@@ -1,3 +1,6 @@
+//Consider the following series x = 1+1/1! +1/2! + 1/3! + ………1/10! Create two threads t1 & t2. 
+//t1 will generate the denominators and t2 will form the term and add them up. Finally print the result.
+
 package com.java;
 
 class ThreadOne extends Thread {
