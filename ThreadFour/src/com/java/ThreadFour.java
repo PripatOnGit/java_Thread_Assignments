@@ -17,10 +17,12 @@ class ThreadOne extends Thread{
 	}
 	
 	public void readInteger() throws IOException {
-		File myObj = new File("IntegerFile.txt");
-		Scanner sc = new Scanner(myObj);
+		
 		File newFile = new File("D:\\Priyanka\\WEB_DEV\\Java_Thread_Assignaments\\ThreadFour\\src\\com\\java\\integerFile2.txt");
 		newFile.createNewFile();
+		
+		File myObj = new File("IntegerFile.txt");
+		Scanner sc = new Scanner(myObj);
 		while(sc.nextInt()) {
 		FileWriter myWriter = new FileWriter("integerFile2.txt");
 		myWriter.write(num);
