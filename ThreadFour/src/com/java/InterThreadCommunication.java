@@ -10,37 +10,54 @@ class PC{
 	int n;
 	int size;
 	int sum;
+	int consumed_size;
+	int flag;
+	
+	public void print(String source) {
+		System.out.println(source);
+		for(int i=0; i<num.length; i++) {
+			System.out.print(" " + num[i]);
+		}
+		System.out.println();
+	}
+	
 	public void produce() throws InterruptedException, FileNotFoundException {
 		//read from file
 		synchronized(this) {
 			File file = new File("../ThreadFour/src/com/java/IntegerFile");
 			Scanner sc = new Scanner(file);
+			flag = 1;
 			while(sc.hasNextLine()) {
-				System.out.println("Produer started");
 				n = sc.nextInt();
 				System.out.println(""+ n + ", size(P) = " + size);
 				num[size++] = n;  
 				//wait till other thread completes execution
+				print("Producer");
+				notify();
 				wait();
-				//resume reading from file
-				System.out.println("-------------------------");
-				System.out.println("producer waiting now.");
+				//resume reading from file				
 			}
+			System.out.println("Producer completed.");
+			flag = 2;
 		}
 	}
 	
 	public void consume() throws InterruptedException{
-		
-			synchronized(this) {
-				Thread.sleep(1000);
-				System.out.println("Consumer started.");			
-				// add values from file and get sum
-				sum += num[size-1];
-				System.out.println("Sum: "+sum + ", size(C) = " + size);
-				//notify to producer thread to wake up and can start execution once consumer thread terminates			
-				notify();				
-				System.out.println("consumer notifying producer.");
-		
+			Thread.sleep(1000);		
+			int i = 0;
+			synchronized(this) {				
+				while(i < 100) {
+					if(consumed_size < size) {
+						sum += num[consumed_size];
+						consumed_size++;
+						System.out.println("Sum: "+sum + ", size(C) = " + consumed_size);						
+					}
+					//notify to producer thread to wake up and can start execution once consumer thread terminates			
+					notify();	
+					wait();
+					i++;
+				}		
+				System.out.println("Consumed Exited");						
 			}
 		}
 	}

@@ -9,15 +9,18 @@ package com.java;
 class PC {
 	public void produce() throws InterruptedException {
 		synchronized(this) {
+		
 			System.out.println("Producer thread running");
 			wait();
 			System.out.println("Producer thread resume");
+			
+			}
 		}
-	}
 	
 	public void consume() throws InterruptedException {
+		Thread.sleep(1000);
 		synchronized(this) {
-			Thread.sleep(1000);
+			
 			System.out.println("Consumer Thread running");
 			notify();
 			Thread.sleep(2000);
