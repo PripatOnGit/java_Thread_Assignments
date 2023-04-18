@@ -1,3 +1,8 @@
+/*Consider the series 1+2+3+…+100. This can be considered as (1+3+5+…+99)+(2+4+6+…+100). 
+ * Create two threads to compute two series in parallel (do not use simplified equations). Finally print the final sum.
+ */
+
+
 package com.java;
 
 class Number{
